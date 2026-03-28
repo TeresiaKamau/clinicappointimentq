@@ -10,7 +10,7 @@
     "vercel-build": "echo 'Ready for deployment'"
   },
   "engines": {
-    "node": "18.x"
+    "node": "20.x"
   },
   "keywords": [
     "clinic",

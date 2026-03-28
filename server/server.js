@@ -11,10 +11,30 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Database Connection
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log('MongoDB Connected'))
-    .catch(err => console.log(err));
+
+// Serverless-friendly MongoDB connection
+let cached = global.mongoose;
+if (!cached) {
+    cached = global.mongoose = { conn: null, promise: null };
+}
+
+async function connectToDatabase() {
+    if (cached.conn) return cached.conn;
+    if (!cached.promise) {
+        cached.promise = mongoose.connect(process.env.MONGO_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        }).then((mongoose) => mongoose);
+    }
+    cached.conn = await cached.promise;
+    return cached.conn;
+}
+
+// Middleware to ensure DB connection for every request
+app.use(async (req, res, next) => {
+    await connectToDatabase();
+    next();
+});
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
@@ -22,5 +42,5 @@ app.use('/api/doctors', require('./routes/doctor'));
 app.use('/api/appointments', require('./routes/appointment'));
 app.use('/api/queue', require('./routes/queue'));
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// Export the app for Vercel serverless function
+module.exports = app;
