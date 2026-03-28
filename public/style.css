@@ -1,0 +1,40 @@
+:root {
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--dark);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo { font-size: 1.5rem; font-weight: bold; }
+.nav-links a { color: white; text-decoration: none; margin-left: 15px; cursor: pointer; }
+.nav-links a:hover { text-decoration: underline; }
+
+/* Container */
+.container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+
+/* Sections */
+.hidden { display: none !important; }
+.active-section { display: block; animation: fadeIn 0.5s; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* Forms & Inputs */
