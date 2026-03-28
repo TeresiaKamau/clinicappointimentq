@@ -1,0 +1,15 @@
+{
+  "name": "clinic-system",
+  "version": "1.0.0",
+  "description": "A full-stack clinic management system with appointment booking and queue management",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
+    "build": "echo 'Frontend ready'"
+  },
+  "keywords": ["clinic", "appointment", "queue", "management"],
+  "author": "",
+  "license": "ISC",
+  "private": true
+}

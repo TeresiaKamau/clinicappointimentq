@@ -1,4 +1,4 @@
-const API_URL = '/api';
+const API_URL = window.location.origin + '/api';
 
 // State
 let token = localStorage.getItem('token');
