@@ -1,4 +1,4 @@
-const API_URL = 'https://your-backend-url.vercel.app/api'; 
+const API_URL = 'https://clinic-frontend-sooty.vercel.app/api';
 
 // State
 let token = localStorage.getItem('token');
