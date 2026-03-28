@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Appointment = require('/models/Appointment');
-const User = require('/models/User');
+const Appointment = require('../models/Appointment');
+const User = require('../models/User');
 const auth = require('../middleware/auth');
 
 // Get Queue Status (Public)

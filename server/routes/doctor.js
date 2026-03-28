@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Doctor = require('/models/Doctor');
+const Doctor = require('../models/Doctor');
 const auth = require('../middleware/auth');
 
 // Get All Doctors
