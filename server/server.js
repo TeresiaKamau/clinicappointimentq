@@ -36,6 +36,12 @@ app.use(async (req, res, next) => {
     next();
 });
 
+
+// Friendly root route
+app.get('/', (req, res) => {
+    res.send('Clinic API is running!');
+});
+
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/doctors', require('./routes/doctor'));
